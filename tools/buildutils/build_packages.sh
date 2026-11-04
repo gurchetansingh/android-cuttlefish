@@ -9,9 +9,11 @@ function install_debuild_dependencies() {
 
 REPO_DIR="$(realpath "$(dirname "$0")/../..")"
 INSTALL_BAZEL="$(dirname $0)/installbazel.sh"
+INSTALL_GFXSTREAM="$(dirname $0)/installgfxstream.sh"
 BUILD_PACKAGE="$(dirname $0)/build_package.sh"
 
 command -v bazel &> /dev/null || sudo "${INSTALL_BAZEL}"
+pkg-config --exists gfxstream_backend || sudo "${INSTALL_GFXSTREAM}"
 install_debuild_dependencies
 
 # "${BUILD_PACKAGE}" "${REPO_DIR}/container" $@

@@ -32,6 +32,9 @@ runs:
   - name: Install bazel
     run: sudo tools/buildutils/installbazel.sh
     shell: bash
+  - name: Install gfxstream
+    run: sudo tools/buildutils/installgfxstream.sh
+    shell: bash
   - name: Allow unprivileged user namespaces
     run: |
       # The host_tests sandbox harness is rootless and needs unprivileged user
